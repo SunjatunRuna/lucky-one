@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
-import Cart from '../Cart/Cart';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -15,7 +14,7 @@ const Shop = () => {
     const eventHandler = (product) =>{
         const newCart = [...cart, product];
         setCart(newCart);
-        <img src={product.img} alt="" />
+        console.log(newCart)
     }
     return (
         <div className='container row mt-5'>
@@ -31,12 +30,20 @@ const Shop = () => {
                 </div>
             </div>
             <div className='col-lg-3'>
-                <p>Another part</p>
                 <p>Selected Items: 
-                    <Cart 
-                    key={cart.id}
-                    cart={cart}></Cart>
+                    {
+                        cart.map((item) => (
+                            <div className='d-flex my-2'>
+                                <img src={item.img} alt="" className='w-25'/>
+                                <p className='ps-2' key={item.id}>
+                                {item.name}
+                            </p>
+                            </div>
+                        ))
+                    }
                     </p>
+                    <button className='border border-none py-2 me-1'>Choose One</button>
+                    <button className='border border-none py-2'>Choose Again</button>
             </div>
         </div>
     );

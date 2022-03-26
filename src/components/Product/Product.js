@@ -6,7 +6,7 @@ const Product = (props) => {
     const {name, img, price} = product;
     return (
         <div className='product text-secondary border border-mute mx-auto'>
-            <img src={img} alt="" className='img-fluid' />
+            <img src={img} alt="" className='img-fluid w-100' />
             <h5 className='text-start pt-2 ps-2'>{name}</h5>
             <p className='text-start fw-bold ps-2 pb-5'>Price: ${price}</p>
             <button onClick={() => eventHandler(product)} className='border border-none border-radius w-100 p-2 btn-cart'>

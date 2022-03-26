@@ -1,6 +1,9 @@
 .product{
     position: relative;
 }
+.product img{
+    height: 210px;
+}
 .btn-cart{
     position: absolute;
     left: 0;
