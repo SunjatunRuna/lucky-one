@@ -30,14 +30,17 @@ const Shop = () => {
                 </div>
             </div>
             <div className='col-lg-3'>
-                <p>Selected Items: 
+                <p className='ms-4'><span className='fw-bold'>Selected Items:</span> 
                     {
                         cart.map((item) => (
-                            <div className='d-flex my-2'>
-                                <img src={item.img} alt="" className='w-25'/>
-                                <p className='ps-2' key={item.id}>
+                            <div className='row border border-mute mt-4 mb-2'>
+                                <div className='col-4'>
+                                <img src={item.img} alt="" className='w-100 img-fluid'/>
+                                </div>
+                                <div className='col-6'><p className='px-2' key={item.id}>
                                 {item.name}
-                            </p>
+                            </p></div>
+                            <div className='col-2'><i className="fa-solid fa-trash text-end"></i></div>
                             </div>
                         ))
                     }
