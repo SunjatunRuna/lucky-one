@@ -1,0 +1,8 @@
+.product{
+    position: relative;
+}
+.btn-cart{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
