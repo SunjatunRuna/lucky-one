@@ -14,12 +14,16 @@ const Shop = () => {
     const eventHandler = (product) =>{
         const newCart = [...cart, product];
         setCart(newCart);
-        console.log(newCart)
+    }
+    const rejectedProduct = () => setCart([]);
+    const chooseOne = () =>{
+    const choose = cart[Math.floor(Math.random()*cart.length)];
+    console.log(choose);
     }
     return (
         <div className='container row mt-5'>
             <div className='col-lg-9'>
-                <div className='row row-cols-3'>
+                <div className='row row-cols-lg-3 row-cols-sm-1 mb-3'>
                 {
                     products.map(product => <Product 
                         key={product.id}
@@ -30,23 +34,26 @@ const Shop = () => {
                 </div>
             </div>
             <div className='col-lg-3'>
-                <p className='ms-4'><span className='fw-bold'>Selected Items:</span> 
+                <div className='ms-4'><span className='fw-bold'>Selected Items:</span> 
                     {
                         cart.map((item) => (
-                            <div className='row border border-mute mt-4 mb-2'>
+                            <div className='row border border-mute mt-4 mb-2' key={item.id}>
                                 <div className='col-4'>
                                 <img src={item.img} alt="" className='w-100 img-fluid'/>
                                 </div>
-                                <div className='col-6'><p className='px-2' key={item.id}>
+                                <div className='col-6'><p className='px-2'>
                                 {item.name}
                             </p></div>
                             <div className='col-2'><i className="fa-solid fa-trash text-end"></i></div>
                             </div>
                         ))
                     }
-                    </p>
-                    <button className='border border-none py-2 me-1'>Choose One</button>
-                    <button className='border border-none py-2'>Choose Again</button>
+                    </div>
+                    <div className='d-flex w-100'>
+                    <button onClick={chooseOne} className='border border-none w-50 ms-2 py-2'>Select</button>
+                    <button onClick={rejectedProduct} className='border border-none ms-2 w-50 py-2'>Reject</button>
+                    
+                    </div>
             </div>
         </div>
     );
